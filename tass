@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qiraa Time</title>
+    <link rel="stylesheet" href="style.css"> <!-- Lien vers le fichier CSS -->
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo"><a href="#">Qiraa Time</a></div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#">Accueil</a></li>
+                    <li><a href="#">Livres</a></li>
+                    <li><a href="#">À propos</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero">
+        <h1>Bienvenue sur Qiraa Time</h1>
+        <p>Découvrez et vendez des livres d'occasion facilement.</p>
+    </div>
+
+    <div class="recent-books">
+        <div class="section-header">
+            <h2>Livres récents</h2>
+        </div>
+        <div class="books-grid">
+            <div class="book-card">
+                <div class="book-image">
+                    <img src="c:\Users\Tasnim\Desktop\81b44d50c54db53f4af298a34ed7e819.jpeg" alt="Livre 1">
+                </div>
+                <div class="book-info">
+                    <h3>Titre du livre 1</h3>
+                    <p class="book-author">Auteur 1</p>
+                    <p class="book-description">Description du livre 1.</p>
+                    <div class="book-footer">
+                        <span class="book-price">10,00 €</span>
+                        <span class="book-location">Localisation(gabes)</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Ajoutez d'autres cartes de livres ici -->
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>À propos</h3>
+                <p>Informations sur Qiraa Time.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Liens utiles</h3>
+                <ul>
+                    <li><a href="#">Politique de confidentialité</a></li>
+                    <li><a href="#">Conditions d'utilisation</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 Qiraa Time. Tous droits réservés."by tesnim"
+        </div>
+    </footer>
+</body>
+</html>
