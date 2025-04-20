@@ -37,6 +37,10 @@ Une plateforme web pour acheter et vendre des livres d'occasion. Ce projet est d
    http://localhost:8080
    ```
 
+## Statut du Projet
+
+Ce projet est en cours de développement et n'est pas encore terminé.
+
 ## Structure du Projet
 
 - **src/main/java** : Contient le code source Java
