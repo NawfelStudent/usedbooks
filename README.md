@@ -52,6 +52,3 @@ Une plateforme web pour acheter et vendre des livres d'occasion. Ce projet est d
 
 Les contributions sont les bienvenues ! Veuillez soumettre une pull request ou ouvrir une issue pour discuter des modifications.
 
-## Licence
-
-Ce projet est sous licence MIT. Consultez le fichier `LICENSE` pour plus d'informations.
