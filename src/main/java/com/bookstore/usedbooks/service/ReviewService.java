@@ -132,5 +132,10 @@ public class ReviewService {
         
         return reviewDto;
     }
+
+    public Object getAllReviews() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getAllReviews'");
+    }
 }
 

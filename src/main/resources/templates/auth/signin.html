@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Connexion - Kitab Dweir</title>
+    <link rel="stylesheet" th:href="@{/css/normalize.css}">
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <h2>Connexion</h2>
+                <p>Bienvenue de retour !</p>
+            </div>
+            <form class="auth-form" id="signin-form">
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Adresse e-mail" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" placeholder="Mot de passe" required>
+                </div>
+                <div class="form-group button-container">
+                    <button type="submit" class="styled-button">Se connecter</button>
+                </div>
+            </form>
+            <div class="auth-footer">
+                <p>Vous n'avez pas de compte ? <a th:href="@{/auth/signup}">Créer un compte</a></p>
+            </div>
+        </div>
+    </div>
+    <style>
+        .button-container {
+            text-align: center;
+        }
+        .styled-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .styled-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <script>
+        document.getElementById('signin-form').addEventListener('submit', async function (event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const formData = {
+                email: document.querySelector('input[name="email"]').value,
+                password: document.querySelector('input[name="password"]').value
+            };
+
+            try {
+                const response = await fetch('/api/auth/signin', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                if (response.ok) {
+                    // Redirect to home page on successful login
+                    window.location.href = '/index';
+                } else {
+                    const errorData = await response.json();
+                    alert('Erreur : ' + errorData.message);
+                }
+            } catch (error) {
+                console.error('Erreur lors de la connexion :', error);
+                alert('Une erreur est survenue. Veuillez réessayer.');
+            }
+        });
+    </script>
+</body>
+</html>

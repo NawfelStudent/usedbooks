@@ -36,7 +36,7 @@ public class JwtUtils {
 
     private Key key() {
         byte[] decodedKey = Base64.getDecoder().decode(jwtSecret);
-        return new SecretKeySpec(decodedKey, 0, decodedKey.length, "HmacSHA256");
+        return new SecretKeySpec(decodedKey, 0, decodedKey.length,"HmacSHA256");
     }
 
     public String getUserNameFromJwtToken(String token) {

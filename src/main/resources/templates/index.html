@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Librairie de Livres d'Occasion</title>
+    <link rel="stylesheet" th:href="@{/css/normalize.css}">
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+        <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <i class="fas fa-book-open"></i>
+                        <span>liver</span>
+                    </a>
+                </div>
+                
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="books.html"><i class="fas fa-book"></i> Livres</a></li>
+                        <li><a href="audiobooks.html"><i class="fas fa-headphones"></i> Livres Audio</a></li>
+                        <li><a href="sell.html">Vendre un Livre</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="header-actions">
+                    <div class="search-box">
+                        <form action="books.html" method="get">
+                            <input type="text" placeholder="Rechercher un livre..." name="q">
+                            <button type="submit"><i class="fas fa-search"></i></button>
+                        </form>
+                    </div>
+                    
+                    <a href="cart.html" class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                    
+                    <a href="favorites.html" class="favorites-icon">
+                        <i class="fas fa-heart"></i>
+                    </a>
+                    
+                    <a href="auth/signup" class="login-btn">
+                        <i class="fas fa-sign-in-alt"></i>
+                        <span>Se Connecter</span>
+                    </a>
+                    
+                    <button class="mobile-menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Une Seconde Vie pour Vos Livres</h1>
+                    <p>Une plateforme pour acheter et vendre des livres d'occasion</p>
+                    <div class="hero-buttons">
+                        <a href="books.html" class="btn btn-primary">Explorer les Livres</a>
+                        <a href="sell.html" class="btn btn-outline">Vendre un Livre</a>
+                    </div>
+                </div>
+                
+                <div class="hero-search">
+                    <div class="search-card">
+                        <h3>Rechercher un Livre</h3>
+                        <form action="books.html" method="get">
+                            <div class="form-group">
+                                <input type="text" placeholder="Titre, Auteur, ISBN..." name="q">
+                            </div>
+                            <div class="form-group">
+                                <select name="category">
+                                    <option value="all">Toutes les Catégories</option>
+                                    <option value="fiction">Romans</option>
+                                    <option value="non-fiction">Non-Fiction</option>
+                                    <option value="science">Sciences</option>
+                                    <option value="history">Histoire</option>
+                                    <option value="biography">Biographies</option>
+                                    <option value="children">Livres pour Enfants</option>
+                                    <option value="comics">Bandes Dessinées et Manga</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">
+                                <i class="fas fa-search"></i>
+                                Rechercher
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories">
+        <div class="container">
+            <div class="section-header">
+                <h2>Catégories Populaires</h2>
+                <p>Découvrez les catégories les plus recherchées</p>
+            </div>
+            
+            <div class="categories-grid">
+                <a href="books.html?category=fiction" class="category-card">
+                    <div class="category-icon blue">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <span class="category-name">Romans</span>
+                </a>
+                
+                <a href="books.html?category=history" class="category-card">
+                    <div class="category-icon amber">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <span class="category-name">Histoire</span>
+                </a>
+                
+                <a href="books.html?category=science" class="category-card">
+                    <div class="category-icon green">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <span class="category-name">Sciences</span>
+                </a>
+                
+                <a href="books.html?category=romance" class="category-card">
+                    <div class="category-icon pink">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <span class="category-name">Romance</span>
+                </a>
+                
+                <a href="books.html?category=cooking" class="category-card">
+                    <div class="category-icon orange">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <span class="category-name">Cuisine</span>
+                </a>
+                
+                <a href="books.html?category=business" class="category-card">
+                    <div class="category-icon purple">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <span class="category-name">Affaires</span>
+                </a>
+                
+                <a href="books.html?category=children" class="category-card">
+                    <div class="category-icon cyan">
+                        <i class="fas fa-baby"></i>
+                    </div>
+                    <span class="category-name">Enfants</span>
+                </a>
+                
+                <a href="categories.html" class="category-card">
+                    <div class="category-icon gray">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <span class="category-name">Toutes les Catégories</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Books Section -->
+    <section class="featured-books">
+        <div class="container">
+            <div class="section-header">
+                <h2>Livres en Vedette</h2>
+                <p>Découvrez des livres incroyables à ne pas manquer</p>
+            </div>
+            
+            <div class="books-grid">
+                <!-- Book Card 1 -->
+                <div class="book-card">
+                    <div class="book-cover">
+                        <img src="images/book1.jpg" alt="Le Petit Prince">
+                        <button class="favorite-btn" data-id="1">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <span class="book-condition">Excellent État</span>
+                    </div>
+                    <div class="book-info">
+                        <div class="book-rating">
+                            <i class="fas fa-star"></i>
+                            <span>4.8</span>
+                            <span class="reviews-count">• 124 Avis</span>
+                        </div>
+                        <h3 class="book-title"><a href="book-details.html?id=1">Le Petit Prince</a></h3>
+                        <p class="book-author">Antoine de Saint-Exupéry</p>
+                        <div class="book-price">
+                            <span class="current-price">8.99 €</span>
+                            <span class="original-price">12.99 €</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline btn-block add-to-cart" data-id="1">
+                        <i class="fas fa-shopping-cart"></i>
+                        Ajouter au Panier
+                    </button>
+                </div>
+                
+                <!-- Book Card 2 -->
+                <div class="book-card">
+                    <div class="book-cover">
+                        <img src="images/book2.jpg" alt="1984">
+                        <button class="favorite-btn" data-id="2">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <span class="book-condition">Bon État</span>
+                    </div>
+                    <div class="book-info">
+                        <div class="book-rating">
+                            <i class="fas fa-star"></i>
+                            <span>4.6</span>
+                            <span class="reviews-count">• 98 Avis</span>
+                        </div>
+                        <h3 class="book-title"><a href="book-details.html?id=2">1984</a></h3>
+                        <p class="book-author">George Orwell</p>
+                        <div class="book-price">
+                            <span class="current-price">7.50 €</span>
+                            <span class="original-price">11.99 €</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline btn-block add-to-cart" data-id="2">
+                        <i class="fas fa-shopping-cart"></i>
+                        Ajouter au Panier
+                    </button>
+                </div>
+                
+                <!-- Book Card 3 -->
+                <div class="book-card">
+                    <div class="book-cover">
+                        <img src="images/book3.jpg" alt="L'Étranger">
+                        <button class="favorite-btn" data-id="3">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <span class="book-condition">État Acceptable</span>
+                    </div>
+                    <div class="book-info">
+                        <div class="book-rating">
+                            <i class="fas fa-star"></i>
+                            <span>4.5</span>
+                            <span class="reviews-count">• 87 Avis</span>
+                        </div>
+                        <h3 class="book-title"><a href="book-details.html?id=3">L'Étranger</a></h3>
+                        <p class="book-author">Albert Camus</p>
+                        <div class="book-price">
+                            <span class="current-price">6.99 €</span>
+                            <span class="original-price">9.99 €</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline btn-block add-to-cart" data-id="3">
+                        <i class="fas fa-shopping-cart"></i>
+                        Ajouter au Panier
+                    </button>
+                </div>
+                
+                <!-- Book Card 4 -->
+                <div class="book-card">
+                    <div class="book-cover">
+                        <img src="images/book4.jpg" alt="Les Misérables">
+                        <button class="favorite-btn" data-id="4">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <span class="book-condition">Comme Neuf</span>
+                    </div>
+                    <div class="book-info">
+                        <div class="book-rating">
+                            <i class="fas fa-star"></i>
+                            <span>4.9</span>
+                            <span class="reviews-count">• 156 Avis</span>
+                        </div>
+                        <h3 class="book-title"><a href="book-details.html?id=4">Les Misérables</a></h3>
+                        <p class="book-author">Victor Hugo</p>
+                        <div class="book-price">
+                            <span class="current-price">10.50 €</span>
+                            <span class="original-price">15.99 €</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline btn-block add-to-cart" data-id="4">
+                        <i class="fas fa-shopping-cart"></i>
+                        Ajouter au Panier
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>Comment Ça Marche</h2>
+                <p>Acheter et vendre des livres n'a jamais été aussi simple</p>
+            </div>
+            
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Rechercher</h3>
+                    <p>Parcourez notre large collection de livres d'occasion par titre, auteur ou catégorie.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>Ajouter au Panier</h3>
+                    <p>Choisissez les livres qui vous intéressent et ajoutez-les à votre panier.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3>Payer en Toute Sécurité</h3>
+                    <p>Effectuez le paiement via notre système sécurisé avec plusieurs options de paiement disponibles.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3>Recevez Vos Livres</h3>
+                    <p>Recevez vos livres directement chez vous et commencez à lire !</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Audiobooks Promo Section -->
+    <section class="audiobooks-promo">
+        <div class="container">
+            <div class="promo-card">
+                <div class="promo-content">
+                    <div class="promo-text">
+                        <h2>Découvrez Notre Collection de Livres Audio</h2>
+                        <p>Profitez de vos livres préférés où que vous soyez</p>
+                        <a href="audiobooks.html" class="btn btn-primary">Explorer les Livres Audio</a>
+                    </div>
+                    
+                    <div class="promo-image">
+                        <div class="audio-icon">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <i class="fas fa-book-open"></i>
+                        <span>Kitab Dwir</span>
+                    </div>
+                    <p>Une plateforme pour acheter et vendre des livres d'occasion</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Explorer les Catégories</h3>
+                    <ul>
+                        <li><a href="books.html">Livres</a></li>
+                        <li><a href="audiobooks.html">Livres Audio</a></li>
+                        <li><a href="categories.html">Catégories</a></li>
+                        <li><a href="bestsellers.html">Meilleures Ventes</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Vendre</h3>
+                    <ul>
+                        <li><a href="sell.html">Vendre un Livre</a></li>
+                        <li><a href="seller-guide.html">Guide du Vendeur</a></li>
+                        <li><a href="pricing.html">Tarifs et Commissions</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Profil</h3>
+                    <ul>
+                        <li><a href="profile.html">Profil</a></li>
+                        <li><a href="orders.html">Mes Commandes</a></li>
+                        <li><a href="my-listings.html">Mes Annonces</a></li>
+                        <li><a href="favorites.html">Favoris</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Aide</h3>
+                    <ul>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contact.html">Contactez-Nous</a></li>
+                        <li><a href="terms.html">Conditions d'Utilisation</a></li>
+                        <li><a href="privacy.html">Politique de Confidentialité</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year">2023</span> Kitab Dwir. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

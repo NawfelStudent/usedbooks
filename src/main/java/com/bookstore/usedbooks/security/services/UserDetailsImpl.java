@@ -11,6 +11,16 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+/*
+ *  ce class implémente l'interface UserDetails de Spring Security
+ * pour représenter les détails d'un utilisateur authentifié.
+ *  il fait la liaison entre l'entité User de l'application et les détails d'authentification de spring security.
+ * 
+ *  au moment de la connexion , transformer un User de la bd en UserDetailsImpl.
+ * 
+ * en resumé , UserDetailsImpl	Classe personnalisée qui adapte User au format Spring
+ */
+
 public class UserDetailsImpl implements UserDetails {
     private static final long serialVersionUID = 1L;
 

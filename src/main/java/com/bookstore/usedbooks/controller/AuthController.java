@@ -11,6 +11,7 @@ import com.bookstore.usedbooks.security.jwt.JwtUtils;
 import com.bookstore.usedbooks.security.services.UserDetailsImpl;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -18,6 +19,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,30 +35,26 @@ import java.util.stream.Collectors;
 @RequestMapping("/api/auth")
 public class AuthController {
     @Autowired
-    AuthenticationManager authenticationManager;
-    // Gère l'authentification des utilisateurs.
+    AuthenticationManager authenticationManager;// Gère l'authentification des utilisateurs.
 
     @Autowired
-    UserRepository userRepository;
-    // Fournit des méthodes pour interagir avec la base de données pour l'entité User.
+    UserRepository userRepository;// Fournit des méthodes pour interagir avec la base de données pour l'entité User.
 
     @Autowired
-    RoleRepository roleRepository;
-    // Fournit des méthodes pour interagir avec la base de données pour l'entité Role.
+    RoleRepository roleRepository;// Fournit des méthodes pour interagir avec la base de données pour l'entité Role.
 
     @Autowired
-    PasswordEncoder encoder;
-    // Encode les mots de passe des utilisateurs.
+    PasswordEncoder encoder;// Encode les mots de passe des utilisateurs.
 
     @Autowired
-    JwtUtils jwtUtils;
-    // Génère et valide les jetons JWT.
+    JwtUtils jwtUtils;// Génère et valide les jetons JWT.
 
     @PostMapping("/signin")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
+        
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), loginRequest.getPassword()));
-        // Authentifie l'utilisateur en utilisant l'objet UsernamePasswordAuthenticationToken.
+    // Authentifie l'utilisateur en utilisant l'objet UsernamePasswordAuthenticationToken.
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String jwt = jwtUtils.generateJwtToken(authentication);
@@ -81,9 +79,8 @@ public class AuthController {
         if (userRepository.existsByEmail(signUpRequest.getEmail())) {
             return ResponseEntity
                     .badRequest()
-                    .body("Error: Email is already in use!");
+                    .body("Error: Email est deja existe!");
         }
-        
 
         // Create new user's account
         User user = new User();
